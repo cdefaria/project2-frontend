@@ -14,7 +14,7 @@ phases:
     post_build:
          commands:
             - echo Deploying production files to S3 web hosting bucket
-            - aws s3 sync --delete dist/scoopshare-frontend s3://scoopshare-frontend
+            - aws s3 sync --delete dist/project2-frontend s3://scoopshare-frontend
             - echo Build completed on `date`
 artifacts:
     files:
