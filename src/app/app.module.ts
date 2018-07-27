@@ -14,7 +14,7 @@ import { TrendingComponent } from './trending/trending.component';
 import { RateComponent } from './rate/rate.component';
 import { ShareComponent } from './share/share.component';
 import { CommentComponent } from './comment/comment.component';
-import { TestComponent } from './test/test.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { TestComponent } from './test/test.component';
     RateComponent,
     ShareComponent,
     CommentComponent,
-    TestComponent
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
