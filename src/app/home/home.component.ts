@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../users.service';
+import { ArticlesService } from '../articles.service';
+import { Article } from '../article';
 
 @Component({
   selector: 'app-home',
@@ -8,18 +9,16 @@ import { UsersService } from '../users.service';
 })
 export class HomeComponent implements OnInit {
 
-  user = this.u.getUsers();
-  userStr = JSON.stringify(this.user);
+  articles: Article[];//this.a.getTrendingArticles();
 
-  constructor(private u : UsersService) { }
+  constructor(private a : ArticlesService) { }
 
   ngOnInit() {
-    this.u.getUsers().subscribe(users => {
-      this.u.subscribers.next(users);
-      this.userStr = JSON.stringify(users);
+    this.a.getTrendingArticles().subscribe(response => {
+      this.articles = <any>response["articles"];
+      console.log(this.articles);
+      // console.log(JSON.stringify(articlesOb));
     })
   }
-
-
 
 }
