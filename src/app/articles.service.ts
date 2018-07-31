@@ -1,8 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Article } from './article';
 import { BehaviorSubject } from '../../node_modules/rxjs';
-import { HttpClient } from '../../node_modules/@angular/common/http';
+import { HttpClient, HttpHeaders } from '../../node_modules/@angular/common/http';
 import { environment } from '../environments/environment';
+
+const options = {
+  headers: new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
