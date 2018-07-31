@@ -1,8 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '../../node_modules/@angular/common/http';
+import { HttpClient, HttpHeaders } from '../../node_modules/@angular/common/http';
 import { BehaviorSubject } from '../../node_modules/rxjs';
 import { User } from './user';
 import { environment } from '../environments/environment';
+
+const options = {
+  headers: new HttpHeaders({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -23,10 +30,14 @@ export class UsersService {
   }
 
   public login(user) {
-    return this.http.post(environment.apiUrl + '/login', JSON.stringify(user));
+    let u = JSON.stringify(user);
+    console.log(u);
+    return this.http.post(environment.apiUrl + '/login', u, options);
   }
 
   public register(user) {
-    return this.http.post(environment.apiUrl + '/register', JSON.stringify(user));
+    let u = JSON.stringify(user);
+    console.log(u);
+    return this.http.post(environment.apiUrl + '/register', u, options);
   }
 }

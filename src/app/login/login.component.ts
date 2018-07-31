@@ -10,7 +10,7 @@ import { Router } from '../../../node_modules/@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  user: User;
+  user: User = new User();
   loggedUser = localStorage.getItem('user');
   isValid: boolean = true;
 
