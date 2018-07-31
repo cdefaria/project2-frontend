@@ -16,6 +16,7 @@ import { RateComponent } from './rate/rate.component';
 import { ShareComponent } from './share/share.component';
 import { CommentComponent } from './comment/comment.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { NavbarComponent } from './navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     HttpClientModule,
     FormsModule,
     NgbModule
