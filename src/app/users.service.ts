@@ -25,4 +25,8 @@ export class UsersService {
   public login(user) {
     return this.http.post(environment.apiUrl + '/login', JSON.stringify(user));
   }
+
+  public register(user) {
+    return this.http.post(environment.apiUrl + '/register', JSON.stringify(user));
+  }
 }
