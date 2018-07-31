@@ -21,4 +21,8 @@ export class UsersService {
   public getUsers() {
     return this.http.get<User>(environment.apiUrl + 'users/1');
   }
+
+  public login(user) {
+    return this.http.post(environment.apiUrl + '/login', JSON.stringify(user));
+  }
 }

@@ -17,8 +17,7 @@ export class HomeComponent implements OnInit {
     this.a.getTrendingArticles().subscribe(response => {
       this.articles = <any>response["articles"];
       console.log(this.articles);
-      // console.log(JSON.stringify(articlesOb));
-    })
+    });
   }
 
 }
