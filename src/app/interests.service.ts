@@ -24,4 +24,12 @@ export class InterestsService {
     let u = JSON.stringify(user);
     return this.http.post(environment.apiUrl + '/interests', u, options);
   }
+
+  public addInterest(user, interest) {
+    let json = '{';
+    let u = JSON.stringify(user);
+    let i = JSON.stringify(interest);
+    json += 'user:{' + u + '}, interest: ' + i + '}'
+    return this.http.post(environment.apiUrl + '/interests', json, options);
+  }
 }

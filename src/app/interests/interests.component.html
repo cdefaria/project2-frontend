@@ -1,3 +1,14 @@
-<p>
-  interests works!
-</p>
+<div class="row justify-content-center">
+  <div class="col">
+    <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Add Interests" [(ngModel)]="interest">
+    <button class="btn btn-lg btn-success" type="submit" (click)="add()">Add</button>
+  </div>
+</div>
+<div class="card container col-md">
+  <h2>Your Interests</h2>
+  <div class="card-body">
+      <div *ngFor="let interest of interests">
+          <p>{{ interest.interest }}</p>
+      </div>
+  </div>
+</div>
