@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../users.service';
 import { User } from '../user';
 import { Router } from '../../../node_modules/@angular/router';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-login',
@@ -11,12 +12,15 @@ import { Router } from '../../../node_modules/@angular/router';
 export class LoginComponent implements OnInit {
 
   user: User = new User();
-  loggedUser = localStorage.getItem('user');
+  loggedUser: any;
   isValid: boolean = true;
+  navbar: NavbarComponent;
 
   constructor(private u : UsersService, private router: Router) { }
 
   ngOnInit() {
+    this.loggedUser = localStorage.getItem('user');
+    console.log('Test: ' + this.loggedUser);
     if(this.loggedUser != null) {
       this.router.navigate(['home']);
     }
@@ -31,7 +35,6 @@ export class LoginComponent implements OnInit {
       } else {
         this.loggedUser = <any>response["user"];
         localStorage.setItem('user', JSON.stringify(this.loggedUser));
-        console.log(this.loggedUser);
         this.router.navigate(['home']);
       }
     });

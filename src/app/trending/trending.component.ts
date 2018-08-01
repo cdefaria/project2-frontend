@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ArticlesService } from '../articles.service';
+import { Article } from '../article';
 
 @Component({
   selector: 'app-trending',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrendingComponent implements OnInit {
 
-  constructor() { }
+  articles: Article[];
+
+  constructor(private a : ArticlesService) { }
 
   ngOnInit() {
+    this.a.getTrendingArticles().subscribe(response => {
+      this.articles = <any>response["articles"];
+      console.log(this.articles);
+    });
   }
 
 }

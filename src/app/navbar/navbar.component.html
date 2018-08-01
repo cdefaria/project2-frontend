@@ -1,21 +1,19 @@
 <div class="wrapper">
   <div class="nav-container">
-    <nav class="navbar navbar-expand-lg bg-light">
-      <a class="navbar-brand" href="#">
-        <h2>ScoopShare</h2>
-        <!-- <img src="media/images/logo.png" alt="ERS logo" id="logo" /> -->
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse"
-        data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link" id="toLogout" (click)="logout()">Logout</a>
+    <div>
+      <nav class="navbar navbar-expand-lg bg-light">
+        <!-- <a class="navbar-brand" href="#"> -->
+        <h1>ScoopShare</h1>
+        <!-- </a> -->
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <button type="submit" class="btn btn-lg btn-success" id="toLogin" [hidden]="loggedIn" (click)="login()">Login</button>
+            <button type="submit" class="btn btn-lg btn-success" id="toRegister" [hidden]="loggedIn" (click)="register()">Register</button>
+            <button type="submit" class="btn btn-lg btn-success" id="toLogout" [hidden]="loggedIn" (click)="logout()">Logout</button>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </div>
 </div>
+<hr/>

@@ -26,4 +26,14 @@ export class ArticlesService {
         'top-headlines?country=us&apiKey=' + 
         environment.apiKey);
   }
+
+  public searchResults(query: string) {
+    let url = environment.newsApiUrl + 
+      'everything?q=' + query.replace(' ', '+') +
+      '&sortBy=publishedAt&apiKey=' + environment.apiKey;
+    console.log(url);
+    return this.http.get(environment.newsApiUrl + 
+      'everything?q=' + query.replace(' ', '+') +
+      '&sortBy=publishedAt&apiKey=' + environment.apiKey);
+  }
 }

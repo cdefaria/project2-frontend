@@ -1,3 +1,19 @@
-<p>
-  search works!
-</p>
+<div class="row justify-content-center">
+  <div class="col">
+    <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords" [(ngModel)]="query">
+    <button class="btn btn-lg btn-success" type="submit" (click)="search()">Search</button>
+  </div>
+</div>
+<div class="card container col-md" [hidden]="searched">
+  <h2>Results for: {{ query }}</h2>
+  <div class="card-body">
+      <div *ngFor="let article of articles">
+          <p>
+              <img class="card-img-top" [src]="article.urlToImage" 
+                  alt="Image Not Found" height="60" width="60">
+              {{ article.title }}
+              <a [href]="article.url">Tell me More?</a>
+          </p>
+      </div>
+  </div>
+</div>
