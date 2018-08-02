@@ -26,10 +26,7 @@ export class InterestsService {
   }
 
   public addInterest(user, interest) {
-    let json = '{';
-    let u = JSON.stringify(user);
-    let i = JSON.stringify(interest);
-    json += 'user:{' + u + '}, interest: ' + i + '}'
+    let json = '{\n\tuser_id: "' + user.user_id + '",\n\tinterest: "' + interest + '"\n}'
     return this.http.post(environment.apiUrl + '/interests', json, options);
   }
 }

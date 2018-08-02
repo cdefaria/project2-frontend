@@ -22,9 +22,7 @@ export class InterestsComponent implements OnInit {
   }
 
   public add() {
-    let temp: Interest;
-    temp.interest = this.interest;
-    this.i.addInterest(this.user, temp);
+    this.i.addInterest(this.user, this.interest);
     this.i.getUserInterests(this.user).subscribe(response => {
       this.interests = <any>response["interests"];
     });

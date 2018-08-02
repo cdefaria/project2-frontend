@@ -11,10 +11,15 @@ export class NavbarComponent implements OnInit {
   loggedUser = JSON.parse(localStorage.getItem('user'));
   loggedIn: Boolean = (this.loggedUser != null);
   logOut: Boolean = !this.loggedIn;
+  link: number;
 
   constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
+    
   }
 
   public login() {
@@ -30,5 +35,36 @@ export class NavbarComponent implements OnInit {
     localStorage.setItem('user', null);
     this.loggedUser = null;
     this.router.navigate(['login']);
+  }
+
+  public quickLinks() {
+    switch(this.link) {
+      case 0:
+        break;
+      case 1:
+        this.trends();
+        break;
+      case 2:
+        this.search();
+        break;
+      case 3:
+        this.home();
+        break;
+      default:
+        console.log('Invalid input');
+    }
+
+  }
+
+  public trends() {
+    this.router.navigate(['trends']);
+  }
+
+  public search() {
+    this.router.navigate(['search']);
+  }
+
+  public home() {
+    this.router.navigate(['home']);
   }
 }

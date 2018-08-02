@@ -32,7 +32,7 @@ export class UsersService {
   public login(user) {
     let u = JSON.stringify(user);
     console.log(u);
-    return this.http.post(environment.apiUrl + '/login', u, options);
+    return this.http.post(environment.apiUrl + 'login', u, options);
   }
 
   public register(user) {

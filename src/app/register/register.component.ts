@@ -17,9 +17,10 @@ export class RegisterComponent implements OnInit {
   constructor(private u : UsersService, private router: Router) { }
 
   ngOnInit() {
-    if(this.loggedUser != null) {
-      this.router.navigate(['home']);
-    }
+    this.loggedUser = localStorage.getItem('user');
+    // if(this.loggedUser != null) {
+    //   this.router.navigate(['home']);
+    // }
   }
 
   public register() {

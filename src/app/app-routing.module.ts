@@ -25,7 +25,7 @@ const ROUTES: Routes = [
         component: RegisterComponent
     },
     {
-        path: 'trending',
+        path: 'trends',
         component: TrendingComponent
     },
     {
@@ -54,7 +54,7 @@ const ROUTES: Routes = [
     },
     {
         path: '', 
-        redirectTo: 'home', 
+        redirectTo: 'login', 
         pathMatch: 'full'
     }
 ];
