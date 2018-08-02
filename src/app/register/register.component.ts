@@ -10,7 +10,7 @@ import { Router } from '../../../node_modules/@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  user: User;
+  user: User = new User();
   loggedUser = localStorage.getItem('user');
   isValid: boolean = true;
 
@@ -25,16 +25,12 @@ export class RegisterComponent implements OnInit {
 
   public register() {
     this.u.register(this.user).subscribe(response => {
-      if(response == null) {
-        this.user.password='';
-        this.isValid = !this.isValid;
-        alert("Invalid Username/Password");
-      } else {
-        this.loggedUser = <any>response["user"];
-        localStorage.setItem('user', JSON.stringify(this.loggedUser));
-        console.log(this.loggedUser);
-        this.router.navigate(['home']);
-      }
+      console.log(response);
+      console.log('User successfully created');
+      this.router.navigate(['login']);
+      // if(response[] == 201) {}
+    }, err => {
+      alert('Unable to create user: ' + this.user.username);
     });
   }
 

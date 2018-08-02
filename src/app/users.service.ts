@@ -38,6 +38,6 @@ export class UsersService {
   public register(user) {
     let u = JSON.stringify(user);
     console.log(u);
-    return this.http.post(environment.apiUrl + '/register', u, options);
+    return this.http.post(environment.apiUrl + 'users', u, options);
   }
 }

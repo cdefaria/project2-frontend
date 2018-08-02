@@ -18,10 +18,6 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
-  ngOnChanges() {
-    
-  }
-
   public login() {
     this.router.navigate(['login']);
   }
@@ -38,22 +34,14 @@ export class NavbarComponent implements OnInit {
   }
 
   public quickLinks() {
-    switch(this.link) {
-      case 0:
-        break;
-      case 1:
-        this.trends();
-        break;
-      case 2:
-        this.search();
-        break;
-      case 3:
-        this.home();
-        break;
-      default:
-        console.log('Invalid input');
+    console.log('In quickLinks; link = ' + this.link);
+    if(this.link == 1) {
+      this.trends();
+    } else if(this.link == 2) {
+      this.search();
+    } else if(this.link == 3) {
+      this.home();
     }
-
   }
 
   public trends() {
