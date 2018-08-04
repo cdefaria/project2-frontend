@@ -1,3 +1,12 @@
-<p>
-  comment works!
-</p>
+<div class="card-body">
+  <img class="card-img-top" [src]="article.urlToImage" alt="Image Not Found"/>
+  <h1>{{ article.title }}</h1>
+  <p>Description: {{ article.description }}</p>
+  <p>URL: {{ article.url }}</p>
+  <hr/>
+  <!-- <h3>Comments(comments.length):</h3>
+  <div *ngFor="let comment in comments">
+    <table>
+    </table>
+  </div> -->
+</div>

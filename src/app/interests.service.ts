@@ -21,12 +21,14 @@ export class InterestsService {
   constructor(private http: HttpClient) { }
 
   public getUserInterests(user) {
-    let u = JSON.stringify(user);
-    return this.http.post(environment.apiUrl + '/interests', u, options);
+    console.log('User: ' + JSON.stringify(user));
+    let u = '["' + user.id + '"]';
+    console.log('Request: ' + u);
+    return this.http.post(environment.apiUrl + 'interests/get', u, options);
   }
 
   public addInterest(user, interest) {
-    let json = '{["' + user.user_id + '", "' + interest + '"]}'
-    return this.http.post(environment.apiUrl + '/interests', json, options);
+    let json = '["' + user.id + '", "' + interest + '"]'
+    return this.http.post(environment.apiUrl + 'interests', json, options);
   }
 }

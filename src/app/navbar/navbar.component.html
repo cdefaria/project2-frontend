@@ -9,12 +9,13 @@
           <div class="navbar-nav">
             <button type="submit" class="btn btn-lg btn-success" id="toLogin" [hidden]="loggedIn" (click)="login()">Login</button>
             <button type="submit" class="btn btn-lg btn-success" id="toRegister" [hidden]="loggedIn" (click)="register()">Register</button>
-            <button type="submit" class="btn btn-lg btn-success" id="toLogout" [hidden]="loggedIn" (click)="logout()">Logout</button>
+            <button type="submit" class="btn btn-lg btn-success" id="toLogout" [hidden]="logOut" (click)="logout()">Logout</button>
             <select class="dropdown" id="quickLinks" [(ngModel)]="link" (blur)="quickLinks()">
               <option value="0">Nevermind</option>
               <option value="1">Trending Articles</option>
               <option value="2">Search for Articles</option>
-              <option value="3">Go Back to Home Page</option>
+              <option value="3">Add Interests</option>
+              <option value="4">Go Back to Home Page</option>
             </select>
           </div>
         </div>

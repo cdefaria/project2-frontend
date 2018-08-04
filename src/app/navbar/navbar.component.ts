@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '../../../node_modules/@angular/router';
+import { User } from '../user';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,7 @@ import { Router } from '../../../node_modules/@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  loggedUser = JSON.parse(localStorage.getItem('user'));
+  loggedUser: User;
   loggedIn: Boolean = (this.loggedUser != null);
   logOut: Boolean = !this.loggedIn;
   link: number;
@@ -16,6 +17,25 @@ export class NavbarComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+    this.loggedUser = JSON.parse(localStorage.getItem('user'));
+    if(this.loggedUser == null) {
+      this.loggedIn = false;
+      this.logOut = true;
+    } else {
+      this.loggedIn = true;
+      this.logOut = false;
+    }
+  }
+
+  ngDoCheck() {
+    this.loggedUser = JSON.parse(localStorage.getItem('user'));
+    if(this.loggedUser == null) {
+      this.loggedIn = false;
+      this.logOut = true;
+    } else {
+      this.loggedIn = true;
+      this.logOut = false;
+    }
   }
 
   public login() {
@@ -28,18 +48,21 @@ export class NavbarComponent implements OnInit {
 
   public logout() {
     console.log('In logout');
-    localStorage.setItem('user', null);
+    localStorage.clear();
     this.loggedUser = null;
     this.router.navigate(['login']);
   }
 
   public quickLinks() {
+    // localStorage.setItem('user', this.loggedUser);
     console.log('In quickLinks; link = ' + this.link);
     if(this.link == 1) {
       this.trends();
     } else if(this.link == 2) {
       this.search();
     } else if(this.link == 3) {
+      this.interest();
+    } else if(this.link == 4) {
       this.home();
     }
   }
@@ -50,6 +73,10 @@ export class NavbarComponent implements OnInit {
 
   public search() {
     this.router.navigate(['search']);
+  }
+
+  public interest() {
+    this.router.navigate(['interests']);
   }
 
   public home() {

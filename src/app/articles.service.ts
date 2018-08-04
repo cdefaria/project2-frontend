@@ -36,4 +36,12 @@ export class ArticlesService {
       'everything?q=' + query.replace(' ', '+') +
       '&sortBy=publishedAt&apiKey=' + environment.apiKey);
   }
+
+  public addArticle(article: Article) {
+    let json = '{"title": "' + article.title + 
+        '", "description": "' + article.description + 
+        '", "url": "' + article.url + '"}';
+    console.log(json);
+    return this.http.post(environment.apiUrl + 'articles', json, options);
+  }
 }

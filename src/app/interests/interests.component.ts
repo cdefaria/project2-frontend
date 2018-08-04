@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Interest } from '../interest';
 import { InterestsService } from '../interests.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-interests',
@@ -9,23 +10,28 @@ import { InterestsService } from '../interests.service';
 })
 export class InterestsComponent implements OnInit {
 
-  interests: Interest[];
+  interests: any[] = new Array<any>();
   interest: string;
-  user = localStorage.getItem('user')
+  user: User;
 
   constructor(private i : InterestsService) { }
 
   ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem('user'));
     this.i.getUserInterests(this.user).subscribe(response => {
-      this.interests = <any>response["interests"];
+      this.interests = <any>response;
+      console.log('Interests: ' + JSON.stringify(this.interests));
     });
   }
 
   public add() {
-    this.i.addInterest(this.user, this.interest);
-    this.i.getUserInterests(this.user).subscribe(response => {
-      this.interests = <any>response["interests"];
+    this.i.addInterest(this.user, this.interest).subscribe(response => {
+      console.log(JSON.stringify(response));
+      this.interests = <any>response;
     });
+    // this.i.getUserInterests(this.user).subscribe(response => {
+    //   this.interests = <any>response["interests"];
+    // });
   }
 
 }

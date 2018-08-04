@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
 
   articles: Article[];
   user: any;
+  currentRate: number;
 
   constructor(private a : ArticlesService, private i : InterestsService, private router: Router) { }
 
@@ -29,6 +30,14 @@ export class HomeComponent implements OnInit {
         });
     //   }
     // });
+  }
+
+  public getComments(article) {
+    console.log(article);
+    let art: Article = article;
+    console.log(art);
+    localStorage.setItem('article', JSON.stringify(art));
+    this.router.navigate(['comments']);
   }
 
 }

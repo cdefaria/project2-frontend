@@ -6,6 +6,7 @@
                 <img class="card-img-top" [src]="article.urlToImage" 
                     alt="Image Not Found" height="60" width="60">
                 {{ article.title }}
+                <button class="btn btn-primary" (click)="getComments(article)">Comments</button>
                 <a [href]="article.url">Tell me More?</a>
             </p>
         </div>

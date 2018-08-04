@@ -7,8 +7,8 @@
 <div class="card container col-md">
   <h2>Your Interests</h2>
   <div class="card-body">
-      <div *ngFor="let interest of interests">
-          <p>{{ interest.interest }}</p>
-      </div>
+      <ul *ngFor="let interest of interests">
+          <li>{{ interest.interestName }}</li>
+      </ul>
   </div>
 </div>

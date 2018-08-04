@@ -37,8 +37,15 @@ export class LoginComponent implements OnInit {
         this.isValid = !this.isValid;
         alert("Invalid Username/Password");
       } else {
-        this.loggedUser = <any>response["user"];
-        localStorage.setItem('user', JSON.stringify(this.loggedUser));
+        this.loggedUser = <any>response;
+        this.user.id = <any>response['userId'];
+        this.user.email = <any>response['email'];
+        this.user.firstname = <any>response['firstname'];
+        this.user.lastname = <any>response['lastname'];
+        this.user.username = <any>response['username'];
+        this.user.password = <any>response['password'];
+        localStorage.setItem('user', JSON.stringify(this.user));
+        console.log('In Login: ' + localStorage.getItem('user'));
         this.router.navigate(['home']);
       }
     });
