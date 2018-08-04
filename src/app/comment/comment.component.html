@@ -1,9 +1,11 @@
 <div class="card-body">
   <img class="card-img-top" [src]="article.urlToImage" alt="Image Not Found"/>
-  <h1>{{ article.title }}</h1>
+  <h1>{{ article.title }}</h1><p> By: {{ article.author }}</p>
   <p>Description: {{ article.description }}</p>
   <p>URL: {{ article.url }}</p>
   <hr/>
+  <input type="textbox" placeholder="Add a comment" [(ngModel)]="comment"/>
+  <button class="btn btn-lg btn-success" type="submit" (click)="add()">Add</button>
   <!-- <h3>Comments(comments.length):</h3>
   <div *ngFor="let comment in comments">
     <table>

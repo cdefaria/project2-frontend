@@ -12,6 +12,7 @@ export class CommentComponent implements OnInit {
 
   article: Article;
   comments: Comment[];
+  comment: string;
   authors: User[];
 
   constructor(private a : ArticlesService) { }
@@ -23,6 +24,10 @@ export class CommentComponent implements OnInit {
     }, err => {
       console.log('Article: ' + this.article.title + ' already in DB');
     });
+  }
+
+  public add() {
+
   }
 
 }
