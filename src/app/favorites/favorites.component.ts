@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../article';
 import { ArticlesService } from '../articles.service';
+import { UsersService } from '../users.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-favorites',
@@ -9,16 +11,16 @@ import { ArticlesService } from '../articles.service';
 })
 export class FavoritesComponent implements OnInit {
 
-  article: Article;
+  articles: Article[];
+  user: User;
 
-  constructor(private a : ArticlesService) { }
+  constructor(private a : ArticlesService, private u : UsersService) { }
 
   ngOnInit() {
-    this.article = JSON.parse(localStorage.getItem('article'));
-    this.a.addArticle(this.article).subscribe(response => {
-      console.log('Article: ' + this.article.title + ' added to DB');
-    }, err => {
-      console.log('Article: ' + this.article.title + ' already in DB');
+    this.user = JSON.parse(localStorage.getItem('user'));
+    this.u.getFavorites(this.user.id).subscribe(response => {
+      this.articles = <any>response;
+      console.log('Response:' + JSON.stringify(this.articles));
     });
   }
 

@@ -1,3 +1,13 @@
-<p>
-  favorites works!
-</p>
+<div class="card container col-md">
+  <h2>Your Favorite Articles</h2>
+  <div class="card-body">
+      <div *ngFor="let article of articles">
+          <div>
+              <h3>{{ article.title }}</h3>
+              {{ article.description }}
+              <a [href]="article.url">Original Article</a>
+              <hr/>
+          </div>
+      </div>
+  </div>
+</div>

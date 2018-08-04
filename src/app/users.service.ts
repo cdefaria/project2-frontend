@@ -40,4 +40,16 @@ export class UsersService {
     console.log(u);
     return this.http.post(environment.apiUrl + 'users', u, options);
   }
+
+  public addFavorite(user, article){
+    let json = '["' + user +  '", "' + article + '"]';
+    console.log(json);
+    return this.http.post(environment.apiUrl + 'users/add-favorite', json, options);
+  }
+
+  public getFavorites(user) {
+    let json = '["' + user +  '"]';
+    console.log(json);
+    return this.http.post(environment.apiUrl + 'users/favorites', json, options);
+  }
 }

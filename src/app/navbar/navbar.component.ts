@@ -63,6 +63,10 @@ export class NavbarComponent implements OnInit {
     } else if(this.link == 3) {
       this.interest();
     } else if(this.link == 4) {
+      this.favorites();
+    } else if(this.link == 5) {
+      this.rating();
+    } else if(this.link == 6) {
       this.home();
     }
   }
@@ -77,6 +81,14 @@ export class NavbarComponent implements OnInit {
 
   public interest() {
     this.router.navigate(['interests']);
+  }
+
+  public favorites() {
+    this.router.navigate(['favorites']);
+  }
+
+  public rating() {
+    this.router.navigate(['rates']);
   }
 
   public home() {
