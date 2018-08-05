@@ -31,25 +31,38 @@ export class UsersService {
 
   public login(user) {
     let u = JSON.stringify(user);
-    console.log(u);
+    // console.log(u);
     return this.http.post(environment.apiUrl + 'login', u, options);
   }
 
   public register(user) {
     let u = JSON.stringify(user);
-    console.log(u);
+    // console.log(u);
     return this.http.post(environment.apiUrl + 'users', u, options);
   }
 
   public addFavorite(user, article){
     let json = '["' + user +  '", "' + article + '"]';
-    console.log(json);
+    // console.log(json);
     return this.http.post(environment.apiUrl + 'users/add-favorite', json, options);
   }
 
   public getFavorites(user) {
     let json = '["' + user +  '"]';
-    console.log(json);
+    // console.log(json);
     return this.http.post(environment.apiUrl + 'users/favorites', json, options);
+  }
+
+  public addComment(user, article, comment) {
+    let json = '["' + user + '", "' +
+        article + '", "' + comment + '"]';
+    console.log(json);
+    return this.http.post(environment.apiUrl + 'comments', json, options);
+  }
+
+  public getComments(id) {
+    let json = '["' + id + '"]';
+    console.log('Testing: ' + json);
+    return this.http.post(environment.apiUrl + 'comments/get', json, options);
   }
 }

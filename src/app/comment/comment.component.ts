@@ -13,7 +13,7 @@ export class CommentComponent implements OnInit {
 
   article: Article;
   user: User;
-  comments: Comment[];
+  comments: Comment[] = new Array();;
   comment: string;
   authors: User[];
 
@@ -28,10 +28,20 @@ export class CommentComponent implements OnInit {
     }, err => {
       console.log('Article: ' + this.article.title + ' already in DB');
     });
+    this.u.getComments(this.user.id).subscribe(response => {
+      this.comments = <any>response;
+      console.log('Comments: ' + JSON.stringify(this.comments));
+    });
   }
 
   public add() {
+    this.u.addComment(this.user.id, this.article.id, this.comment).subscribe(response => {
+      this.u.getComments(this.user.id).subscribe(response => {
+        this.comments = <any>response;
+      }, err => {
 
+      });
+    });
   }
 
   public favorite() {
