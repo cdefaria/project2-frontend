@@ -3,6 +3,7 @@ import { Article } from '../article';
 import { User } from '../user';
 import { ArticlesService } from '../articles.service';
 import { UsersService } from '../users.service';
+import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-comment',
@@ -17,13 +18,14 @@ export class CommentComponent implements OnInit {
   comment: string;
   authors: User[];
 
-  constructor(private a : ArticlesService, private u : UsersService) { }
+  constructor(private a : ArticlesService, private u : UsersService, private router: Router) { }
 
   ngOnInit() {
     this.article = JSON.parse(localStorage.getItem('article'));
     this.user = JSON.parse(localStorage.getItem('user'));
     this.a.addArticle(this.article).subscribe(response => {
       this.article.id = response['articleId'];
+      localStorage.setItem('article', JSON.stringify(this.article));
       console.log('Article: ' + JSON.stringify(this.article) + ' added to DB');
     }, err => {
       console.log('Article: ' + this.article.title + ' already in DB');
@@ -48,6 +50,14 @@ export class CommentComponent implements OnInit {
     this.u.addFavorite(this.user.id, this.article.id).subscribe(response => {
       alert('Added article: ' + this.article.title + ' to your favorites');
     });
+  }
+
+  public rate() {
+    this.router.navigate(['rates']);
+  }
+
+  public share() {
+    this.router.navigate(['shares']);
   }
 
 }

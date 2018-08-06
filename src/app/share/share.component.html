@@ -1,3 +1,5 @@
-<p>
-  share works!
-</p>
+<div class="card-body">
+  <h1>{{ article.title }}</h1><p> By: {{ article.author }}</p>
+  <input type="textbox" placeholder="Email Recipients" [(ngModel)]="toEmail"/>
+  <button class="btn btn-lg btn-success" type="submit" (click)="send()">Send</button>
+</div>

@@ -1,3 +1,15 @@
-<p>
-  rate works!
-</p>
+<div class="container">
+  <div class="row">
+    <p>Title: {{ article.title }}</p>
+    <p>Rating: {{ myRating }}</p>
+    <div class="col-lg-12">
+      <select class="dropdown" id="rating" [(ngModel)]="myRating" (blur)="addRating()">
+        <option value="1">1 Star</option>
+        <option value="2">2 Stars</option>
+        <option value="3">3 Stars</option>
+        <option value="4">4 Stars</option>
+        <option value="5">5 Stars</option>
+      </select>
+    </div>
+  </div>
+</div>

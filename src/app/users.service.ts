@@ -56,13 +56,36 @@ export class UsersService {
   public addComment(user, article, comment) {
     let json = '["' + user + '", "' +
         article + '", "' + comment + '"]';
-    console.log(json);
+    // console.log(json);
     return this.http.post(environment.apiUrl + 'comments', json, options);
   }
 
   public getComments(id) {
     let json = '["' + id + '"]';
-    console.log('Testing: ' + json);
+    // console.log('Testing: ' + json);
     return this.http.post(environment.apiUrl + 'comments/get', json, options);
+  }
+
+  public setRating(user, article, rating) {
+    let json = '["' + user + '", "' +
+        article + '", "' +  rating + '"]';
+    console.log(json);
+    return this.http.post(environment.apiUrl + 'ratings', json, options);
+  }
+
+  public updateRating(user, article, rating) {
+    let json = '["' + user + '", "' +
+        article + '", "' +  rating + '"]';
+    console.log(json);
+    return this.http.put(environment.apiUrl + 'ratings', json, options);
+  }
+
+  public share(from, to, subject, body) {
+    let json = '["' + from + '", "' +
+        to + '", "' +  subject + 
+        '", "' + body + '"]';
+    console.log(json);
+    return this.http.post(environment.apiUrl + 'users/share', json, options);
+
   }
 }

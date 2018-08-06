@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../user';
+import { Article } from '../article';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-share',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShareComponent implements OnInit {
 
-  constructor() { }
+  toEmail: string;
+  user: User;
+  article: Article;
+
+  constructor(private u : UsersService) { }
 
   ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem('user'));
+    this.article = JSON.parse(localStorage.getItem('article'));
+  }
+
+  public send() {
+    this.u.share(this.user.email, this.toEmail, this.article.title, this.article.url).subscribe(response => {
+      console.log('Article shared');
+    });
   }
 
 }
