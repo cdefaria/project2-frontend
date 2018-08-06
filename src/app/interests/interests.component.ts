@@ -26,8 +26,10 @@ export class InterestsComponent implements OnInit {
 
   public add() {
     this.i.addInterest(this.user, this.interest).subscribe(response => {
-      console.log(JSON.stringify(response));
-      this.interests = <any>response;
+      this.i.getUserInterests(this.user).subscribe(response => {
+        this.interests = <any>response;
+        console.log('Interests: ' + JSON.stringify(this.interests));
+      });
     });
     // this.i.getUserInterests(this.user).subscribe(response => {
     //   this.interests = <any>response["interests"];
