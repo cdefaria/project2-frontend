@@ -85,7 +85,7 @@ export class UsersService {
         to + '", "' +  subject + 
         '", "' + body + '"]';
     console.log(json);
-    return this.http.post(environment.apiUrl + 'users/share', json, options);
+    return this.http.post(environment.apiUrl + 'users/email', json, options);
 
   }
 }
