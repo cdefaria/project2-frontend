@@ -1,28 +1,19 @@
 <div class="wrapper">
   <div class="nav-container">
-    <div>
+    <span>
       <nav class="navbar navbar-expand-lg bg-light">
-        <!-- <a class="navbar-brand" href="#"> -->
-        <h1>ScoopShare</h1>Powered By: <b>NewsAPI</b>
-        <!-- </a> -->
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <button type="submit" class="btn btn-lg btn-success" id="toLogin" [hidden]="loggedIn" (click)="login()">Login</button>
-            <button type="submit" class="btn btn-lg btn-success" id="toRegister" [hidden]="loggedIn" (click)="register()">Register</button>
-            <button type="submit" class="btn btn-lg btn-success" id="toLogout" [hidden]="logOut" (click)="logout()">Logout</button>
-            <select class="dropdown" id="quickLinks" [(ngModel)]="link" [hidden]="logOut" (blur)="quickLinks()">
-              <option value="0">Nevermind</option>
-              <option value="1">Trending Articles</option>
-              <option value="2">Search for Articles</option>
-              <option value="3">Add Interests</option>
-              <option value="4">View Favorites</option>
-              <!-- <option value="5">View Rated Articles</option> -->
-              <option value="6">Go Back to Home Page</option>
-            </select>
-          </div>
-        </div>
+        <img src="../../favicon.ico" height="60" width="60" (click)="home()"/>
+        <button type="submit" class="btn btn-lg btn-success" id="toLogin" [hidden]="loggedIn" (click)="login()">Login</button>
+        <button type="submit" class="btn btn-lg btn-success" id="toRegister" [hidden]="loggedIn" (click)="register()">Register</button>
+        <button type="submit" class="btn btn-lg btn-success" id="toHome" [hidden]="logOut" (click)="home()">Home</button>
+        <button type="submit" class="btn btn-lg btn-success" id="toLogout" [hidden]="logOut" (click)="logout()">Logout</button>
+        <button type="submit" class="btn btn-lg btn-success" id="toTrending" [hidden]="logOut" (click)="trends()">Trending Articles</button>
+        <button type="submit" class="btn btn-lg btn-success" id="toSearch" [hidden]="logOut" (click)="search()">Search for Articles</button>
+        <button type="submit" class="btn btn-lg btn-success" id="toInterest" [hidden]="logOut" (click)="interest()">Add Interests</button>
+        <button type="submit" class="btn btn-lg btn-success" id="toFavorite" [hidden]="logOut" (click)="favorites()">View Favorites</button>
+        <p>Powered By: <b>NewsAPI</b></p>
       </nav>
-    </div>
+    </span>
   </div>
 </div>
 <hr/>

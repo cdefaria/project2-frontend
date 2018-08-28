@@ -1,3 +1,21 @@
+.container {
+	padding: 25px;
+    width: 80%;
+    height: 80%;
+	border-color: #555555;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 5px;
+	background-color: darkgray;
+	margin: auto;
+	text-align: left;
+}
+
+h1 {
+    text-align: center;
+}
+
+
 p {
     font-size: 20px;
 }
@@ -8,5 +26,6 @@ hr {
 }
 
 a {
-    color: gray;
+    color: aqua;
+    margin-left: 10px;
 }

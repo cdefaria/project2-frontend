@@ -1,10 +1,25 @@
 #data-container {
 	padding: 25px;
-	width: 40%;
+	width: 25%;
 	border-color: #BBBBBB;
 	border-style: solid;
 	border-width: 1px;
 	border-radius: 5px;
-	background-color: #CCCCCC;
+	background-color: darkgray;
 	border-color: #BBBBBB;
+	margin: auto;
+	text-align: center;
+}
+
+.btn {
+	background-color: aquamarine;
+}
+
+#login-username {
+	border-radius: 4px;
+}
+
+#login-password {
+	border-radius: 4px;
+	margin-bottom: 25px;
 }

@@ -1,20 +1,21 @@
 <div class="card-body">
   <img class="card-img-top" [src]="article.urlToImage" alt="Image Not Found"/>
-  <h1>{{ article.title }}</h1><p> By: {{ article.author }}
+  <h1>{{ article.title }}</h1><hr/><p> <b>By:</b> {{ article.author }}
     <button class="btn btn-lg btn-success" type="submit" (click)="rate()">Rate Article</button>
     <button class="btn btn-lg btn-success" type="submit" (click)="share()">Share Article</button>
+    <button class="btn btn-lg btn-success" type="submit" (click)="favorite()">Favorite</button>
   </p>
-  <button class="btn btn-lg btn-success" type="submit" (click)="favorite()">Favorite</button>
-  <p>Description: {{ article.description }}</p>
-  <p>URL: {{ article.url }}</p>
+  <p><b>Description:</b> {{ article.description }}</p>
+  <p><b>URL:</b> {{ article.url }}</p>
   <hr/>
-  <input type="textbox" placeholder="Add a comment" [(ngModel)]="comment"/>
-  <button class="btn btn-lg btn-success" type="submit" (click)="add()">Add</button>
+  <input id="addComment" type="textbox" placeholder="Add a comment" [(ngModel)]="comment"/>
+  <button id="commentSubmit" class="btn btn-lg btn-success" type="submit" (click)="add()">Add</button>
 </div>
 <div class="card container col-md">
   <div class="card-body">
     <div>
       <h3>Comments({{comments.length}})</h3>
+      <hr/>
     </div>
     <ul *ngFor="let c of comments">
       <li>{{ c.comments }}</li>

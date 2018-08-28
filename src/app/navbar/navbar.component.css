@@ -1,0 +1,23 @@
+.wrapper {
+    background-color: darkgray
+}
+
+.btn {
+    background-color: aquamarine;
+    padding: 5px;
+    margin-right: 2px;
+    margin-bottom: 10px;
+}
+
+p {
+    float: right;
+    text-align: right;
+}
+
+#toHome {
+    margin-left: 5px;
+}
+
+#toLogin {
+    margin-left: 5px;
+}
